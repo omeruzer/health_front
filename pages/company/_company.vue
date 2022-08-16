@@ -17,29 +17,8 @@
           </div>
           <div class="sc">
             <div class="row">
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
-              </div>
-              <div class="col-md-3 mt-3">
-                <service-card />
+              <div class="col-md-3 mt-3" v-for="(item, index) in list" :key="index">
+                <service-card :item="item" />
               </div>
             </div>
           </div>
@@ -72,6 +51,24 @@ import Review from "../../components/home/Review.vue";
 import ServiceCard from "../../components/services/ServiceCard.vue";
 export default {
   components: { CompanyDetailCard, Review, ServiceCard },
+  data() {
+    return {
+      list: [],
+    };
+  },
+  mounted() {
+    this.getItem();
+  },
+  methods: {
+    getItem() {
+      this.$axios
+        .get("http://localhost:8000/api/service/home-items")
+        .then((result) => {
+          this.list = result.data;
+        })
+        .catch((err) => {});
+    },
+  },
 };
 </script>
 

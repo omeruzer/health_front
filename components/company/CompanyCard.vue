@@ -1,13 +1,13 @@
 <template>
   <div>
-    <nuxt-link to="/company/company">
+    <nuxt-link :to="`/company/${item.slug}`">
       <div class="card">
         <div class="img">
           <img class="service-img" src="@/static/compnay.png" alt="" />
         </div>
         <div class="p-3">
-          <div class="service-title"><b>Company Name</b></div>
-          <div class="address"><span>Istanbul / Turkey</span></div>
+          <div class="service-title"><b>{{item.name}}</b></div>
+          <div class="address"><span>{{item.city.name}} / {{item.country.name}}</span></div>
           <div class="star">
             <div class="d-flex align-items-center">
               <div class="">
@@ -32,7 +32,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:['item']
+};
 </script>
 
 <style scoped>
@@ -54,7 +56,5 @@ export default {};
   border-radius: 25px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.star-rate {
-  color: #efce4a;
-}
+
 </style>

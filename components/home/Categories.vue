@@ -8,37 +8,14 @@
             <span class="title">Categories</span>
           </h4>
         </div>
-        <div class="">
-          <span class="title">View All</span>
-        </div>
       </div>
       <div class="cards">
-        <div class="row">
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <category-card />
+        <div class="row" v-if="load">
+          <div class="col-md-3 mt-3" v-for="(item, i) in list" :key="i">
+            <category-card :item="item" />
           </div>
         </div>
+        <loader v-else />
       </div>
     </div>
   </div>
@@ -48,6 +25,26 @@
 import CategoryCard from "../category/CategoryCard.vue";
 export default {
   components: { CategoryCard },
+  data() {
+    return {
+      list: [],
+      load: false,
+    };
+  },
+  mounted() {
+    this.getItem();
+  },
+  methods: {
+    getItem() {
+      this.$axios
+        .get("http://localhost:8000/api/category/home-items")
+        .then((result) => {
+          this.list = result.data;
+          this.load = true;
+        })
+        .catch((err) => {});
+    },
+  },
 };
 </script>
 

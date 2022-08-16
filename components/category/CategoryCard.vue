@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link :to="`/category/category`">
+    <nuxt-link :to="`/category/${item.slug}`">
       <div class="card">
         <div class="d-flex justify-content-start align-items-center">
           <div class="icon-card">
@@ -9,7 +9,7 @@
             </div>
           </div>
           <div class="text ml-3">
-            <span>Category</span>
+            <span>{{item.title}}</span>
           </div>
         </div>
       </div>
@@ -18,7 +18,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:['item']
+};
 </script>
 
 <style scoped>

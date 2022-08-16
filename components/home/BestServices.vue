@@ -13,29 +13,42 @@
         </div>
       </div>
       <div class="cards">
-        <div class="row">
-          <div class="col-md-3  mt-3">
-            <service-card/>
-          </div>
-          <div class="col-md-3 mt-3">
-            <service-card/>
-          </div>
-          <div class="col-md-3 mt-3">
-            <service-card/>
-          </div>
-          <div class="col-md-3 mt-3">
-            <service-card/>
+        <div class="row" v-if="loader">
+          <div class="col-md-3 mt-3" v-for="(item, index) in list" :key="index">
+            <service-card :item="item" />
           </div>
         </div>
+        <loader v-else />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ServiceCard from '../services/ServiceCard.vue';
+import ServiceCard from "../services/ServiceCard.vue";
 export default {
-  components: { ServiceCard },};
+  components: { ServiceCard },
+  data() {
+    return {
+      list: [],
+      loader: false,
+    };
+  },
+  mounted() {
+    this.getItem();
+  },
+  methods: {
+    getItem() {
+      this.$axios
+        .get("http://localhost:8000/api/service/home-items")
+        .then((result) => {
+          this.list = result.data;
+          this.loader = true;
+        })
+        .catch((err) => {});
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

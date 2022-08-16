@@ -14,20 +14,12 @@
         </div>
       </div>
       <div class="cards">
-        <div class="row">
-          <div class="col-md-3 mt-3">
-            <company-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <company-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <company-card />
-          </div>
-          <div class="col-md-3 mt-3">
-            <company-card />
+        <div class="row" v-if="loader">
+          <div class="col-md-3 mt-3" v-for="(item, index) in list" :key="index">
+            <company-card :item="item" />
           </div>
         </div>
+        <loader v-else />
       </div>
     </div>
   </div>
@@ -38,6 +30,26 @@ import CompanyCard from "../company/CompanyCard.vue";
 import ServiceCard from "../services/ServiceCard.vue";
 export default {
   components: { ServiceCard, CompanyCard },
+  data() {
+    return {
+      list: [],
+      loader:false
+    };
+  },
+  mounted() {
+    this.getItem();
+  },
+  methods: {
+    getItem() {
+      this.$axios
+        .get("http://localhost:8000/api/company/home-items")
+        .then((result) => {
+          this.list = result.data;
+          this.loader=true
+        })
+        .catch((err) => {});
+    },
+  },
 };
 </script>
 

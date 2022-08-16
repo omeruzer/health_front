@@ -13,13 +13,15 @@
           </div>
           <div class="form">
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input type="text" class="def-input" placeholder="E-mail" />
+              <input v-model="form.email" type="text" class="def-input" placeholder="E-mail" />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input type="password" class="def-input" placeholder="Password" />
+              <input v-model="form.password" type="password" class="def-input" placeholder="Password" />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <blue-button item="Login" />
+              <div class="" @click="login">
+                <blue-button item="Login" />
+              </div>
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
               <span class="title">Sign Up</span>
@@ -35,6 +37,23 @@
 import BlueButton from "../../components/buttons/BlueButton.vue";
 export default {
   components: { BlueButton },
+  data() {
+    return {
+      form:{}
+    }
+  },
+  methods: {
+    async login() {
+      // await this.$axios.$get("/sanctum/csrf-cookie");
+
+      // await this.$auth.loginWith("local", this.form)
+      //   .then((result) => {
+      //     console.log('login');
+      //   }).catch((err) => {
+      //     console.log(err);
+      //   });
+    },
+  },
 };
 </script>
 

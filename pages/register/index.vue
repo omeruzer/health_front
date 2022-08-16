@@ -13,26 +13,44 @@
           </div>
           <div class="form">
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input type="text" class="def-input" placeholder="Full Name" />
-            </div>
-            <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input type="text" class="def-input" placeholder="E-mail" />
-            </div>
-            <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input type="password" class="def-input" placeholder="Password" />
+              <input
+                v-model="form.name"
+                type="text"
+                class="def-input"
+                placeholder="Full Name"
+              />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
               <input
+                v-model="form.email"
+                type="text"
+                class="def-input"
+                placeholder="E-mail"
+              />
+            </div>
+            <div class="mt-3 d-flex justify-content-center align-items-center">
+              <input
+                v-model="form.password"
+                type="password"
+                class="def-input"
+                placeholder="Password"
+              />
+            </div>
+            <div class="mt-3 d-flex justify-content-center align-items-center">
+              <input
+                v-model="form.password_confirm"
                 type="password"
                 class="def-input"
                 placeholder="Password Confirm"
               />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <blue-button item="Register" />
+              <div class="" @click="register">
+                <blue-button item="Register" />
+              </div>
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <span class="title">Has Account</span>
+              <span @click="register" class="title">Has Account</span>
             </div>
           </div>
         </div>
@@ -45,6 +63,32 @@
 import BlueButton from "../../components/buttons/BlueButton.vue";
 export default {
   components: { BlueButton },
+  data() {
+    return {
+      form: {},
+    };
+  },
+  methods: {
+    register() {
+      if (
+        this.form.name == null ||
+        this.form.email == null ||
+        this.form.password == null ||
+        this.form.password_confirm == null
+      ) {
+        return false;
+      } else {
+        this.$axios
+          .post("http://localhost:8000/api/auth/register", this.form)
+          .then((result) => {
+            console.log(result.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
+  },
 };
 </script>
 

@@ -65,6 +65,20 @@ export default {
     baseURL: '/',
   },
 
+  auth: {
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: 'http://localhost:8000',
+        endpoints: {
+          login: {
+            url: '/api/auth/login'
+          }
+        }
+      },
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 

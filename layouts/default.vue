@@ -163,6 +163,9 @@ body {
 .sub-title {
   color: #7e7e7e;
 }
+.star-rate {
+  color: #efce4a;
+}
 .def-input {
   border: none;
   padding: 5px 25px;
