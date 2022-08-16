@@ -23,6 +23,9 @@
                 <nuxtLink to="/register"><u class="text">Register</u></nuxtLink>
               </p>
               <p>
+                <nuxtLink to="/blogs"><u class="text">Blogs</u></nuxtLink>
+              </p>
+              <p>
                 <nuxtLink to="/about"><u class="text">About Us</u></nuxtLink>
               </p>
               <p>

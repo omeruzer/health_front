@@ -26,10 +26,17 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    }, {
+    },
+     {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Itim&display=swap",
-    }, ]
+    },
+     {
+      rel: "stylesheet",
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css",
+    },
+
+  ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

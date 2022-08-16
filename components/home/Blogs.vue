@@ -8,7 +8,9 @@
           </h4>
         </div>
         <div class="">
-          <span class="title">View All</span>
+          <span class="title"
+            ><nuxt-link class="title" to="/blogs">View All</nuxt-link></span
+          >
         </div>
       </div>
       <div class="cards">
