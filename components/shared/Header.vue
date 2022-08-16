@@ -22,10 +22,12 @@
           >
             <div class="buttons d-flex justify-content-end align-items-center">
               <div class="mr-2">
-                <white-button item="Login" />
+                <nuxt-link to="/login"><white-button item="Login" /></nuxt-link>
               </div>
               <div class="ml-2">
-                <white-button item="Register" />
+                <nuxt-link to="/register"
+                  ><white-button item="Register"
+                /></nuxt-link>
               </div>
             </div>
           </div>

@@ -17,28 +17,28 @@
           </div>
           <div class="sc">
             <div class="row">
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
-              <div class="col-md-3 ml-3 mt-3">
+              <div class="col-md-3 mt-3">
                 <service-card />
               </div>
             </div>

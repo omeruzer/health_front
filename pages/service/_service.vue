@@ -162,8 +162,8 @@
       </div>
       <div class="col-md-3 col-sm-12 mt-3">
         <div class="card">
-          <div class="image">
-            <img style="width: fit-content" src="@/static/compnay.png" alt="" />
+          <div class="image d-flex justify-content-center">
+            <img style="width: 100%" src="@/static/compnay.png" alt="" />
           </div>
           <div class="company-info">
             <div class="d-flex justify-content-center mt-2">

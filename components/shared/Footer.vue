@@ -17,22 +17,19 @@
             <div class=""><h4 class="text">Pages</h4></div>
             <div class="mt-4">
               <p>
-                <a href=""><u class="text">Login</u></a>
+                <nuxtLink to="/login"><u class="text">Login</u></nuxtLink>
               </p>
               <p>
-                <a href=""><u class="text">Register</u></a>
+                <nuxtLink to="/register"><u class="text">Register</u></nuxtLink>
               </p>
               <p>
-                <a href=""><u class="text">About Us</u></a>
+                <nuxtLink to="/about"><u class="text">About Us</u></nuxtLink>
               </p>
               <p>
-                <a href=""><u class="text">Contact</u></a>
+                <nuxtLink to="/contact"><u class="text">Contact</u></nuxtLink>
               </p>
               <p>
-                <a href=""><u class="text">Privacy</u></a>
-              </p>
-              <p>
-                <a href=""><u class="text">Help</u></a>
+                <nuxtLink to="/privacy"><u class="text">Privacy</u></nuxtLink>
               </p>
             </div>
           </div>
