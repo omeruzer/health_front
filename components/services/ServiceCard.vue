@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nuxt-link to="/service/service">
     <div class="card">
       <div class="img">
         <img class="service-img" src="@/static/service.png" alt="" />
@@ -27,6 +28,7 @@
         </div>
       </div>
     </div>
+    </nuxt-link>
   </div>
 </template>
 
