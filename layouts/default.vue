@@ -161,6 +161,6 @@ body {
   color: #2155cd;
 }
 .sub-title {
-  color: #7E7E7E;
+  color: #7e7e7e;
 }
 </style>
