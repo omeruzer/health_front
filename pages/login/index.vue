@@ -13,10 +13,20 @@
           </div>
           <div class="form">
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input v-model="form.email" type="text" class="def-input" placeholder="E-mail" />
+              <input
+                v-model="form.email"
+                type="text"
+                class="def-input"
+                placeholder="E-mail"
+              />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <input v-model="form.password" type="password" class="def-input" placeholder="Password" />
+              <input
+                v-model="form.password"
+                type="password"
+                class="def-input"
+                placeholder="Password"
+              />
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
               <div class="" @click="login">
@@ -39,19 +49,28 @@ export default {
   components: { BlueButton },
   data() {
     return {
-      form:{}
-    }
+      form: {
+        email: "",
+        password: "",
+      },
+    };
   },
   methods: {
     async login() {
-      // await this.$axios.$get("/sanctum/csrf-cookie");
-
-      // await this.$auth.loginWith("local", this.form)
-      //   .then((result) => {
-      //     console.log('login');
-      //   }).catch((err) => {
-      //     console.log(err);
-      //   });
+      await this.$axios.$get("http://localhost:8000/sanctum/csrf-cookie");
+      await this.$auth
+        .loginWith("laravelSanctum", { data: this.form })
+        .then((result) => {
+          if (result.data.message == "Success") {
+            this.$toast.success("Login");
+            // this.$router.push("/");
+          } else {
+            this.$toast.error("Error");
+          }
+        })
+        .catch((err) => {
+          this.isError = true;
+        });
     },
   },
 };

@@ -50,7 +50,7 @@
               </div>
             </div>
             <div class="mt-3 d-flex justify-content-center align-items-center">
-              <span @click="register" class="title">Has Account</span>
+              <span class="title">Has Account</span>
             </div>
           </div>
         </div>
@@ -80,8 +80,9 @@ export default {
       } else {
         this.$axios
           .post("http://localhost:8000/api/auth/register", this.form)
-          .then((result) => {
-            console.log(result.data);
+          .then(async (result) => {
+            await this.$toast.success("Başarıyla Kayıt Oldunuz Giriş Ekranından Giriş Yapabilirsiniz");
+            this.form = {};
           })
           .catch((err) => {
             console.log(err);

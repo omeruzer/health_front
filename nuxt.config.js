@@ -57,7 +57,15 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'vue-toastification/nuxt',
+    '@nuxtjs/auth-next',
+
   ],
+  toast: {
+    timeout: 3500,
+    closeOnClick: true,
+    position: 'top-center',
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -83,6 +91,6 @@ export default {
   build: {},
 
   server: {
-    host: "0.0.0.0"
+    // host: "0.0.0.0"
   }
 }

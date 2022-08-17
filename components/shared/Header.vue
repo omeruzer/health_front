@@ -20,7 +20,10 @@
           <div
             class="col-md-3 d-none d-sm-block d-xs-none d-md-none d-lg-block"
           >
-            <div class="buttons d-flex justify-content-end align-items-center">
+            <div
+              v-if="!$auth.loggedIn"
+              class="buttons d-flex justify-content-end align-items-center"
+            >
               <div class="mr-2">
                 <nuxt-link to="/login"><white-button item="Login" /></nuxt-link>
               </div>
@@ -28,6 +31,17 @@
                 <nuxt-link to="/register"
                   ><white-button item="Register"
                 /></nuxt-link>
+              </div>
+            </div>
+            <div
+              v-else
+              class="buttons d-flex justify-content-end align-items-center"
+            >
+              <div class="mr-2">
+                <nuxt-link to="/"><white-button item="Account" /></nuxt-link>
+              </div>
+              <div class="mr-2" @click="logout">
+                <white-button item="Logout" />
               </div>
             </div>
           </div>
@@ -41,6 +55,18 @@
 import WhiteButton from "../buttons/WhiteButton.vue";
 export default {
   components: { WhiteButton },
+  methods: {
+    logout() {
+      this.$auth
+        .logout()
+        .then((result) => {
+          this.$toast.success('Log out')
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 
